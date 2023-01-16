@@ -32,7 +32,7 @@ namespace CleanArchitecture.Application.Features.Streamers.Commands.CreateStream
         {
             var streamerEntity = _mapper.Map<Streamer>(request);
             var newStreamer = await _streamerRepository.AddAsync(streamerEntity);
-            _logger.LogInformation($"Streamer {newStreamer.Id} fue creado existosamente.")
+            _logger.LogInformation($"Streamer {newStreamer.Id} fue creado existosamente.");
             await SendEmail(newStreamer);
             return newStreamer.Id;
         }
